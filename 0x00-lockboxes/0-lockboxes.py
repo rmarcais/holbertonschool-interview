@@ -10,20 +10,17 @@ def canUnlockAll(boxes):
     if boxes == []:
         return True
 
-    # We append "ul" (that stands for unlocked) to the boxe 0
-    boxes[0].append("ul")
+    # The first box is unlocked
+    unlocked_boxes = [0]
 
     for boxe in boxes:
         index = boxes.index(boxe)
         for key in boxe:
             # If the key can unlock a locked box of the list 'boxes',
             # we append "ul" to this box
-            if (key != "ul" and key != index and key >= 0 and
-                    key < number_boxes and "ul" not in boxes[key]):
-                boxes[key].append("ul")
+            if (key != index and key >= 0 and
+                    key < number_boxes and key not in unlocked_boxes):
+                unlocked_boxes.append(key)
 
-    # We return False if one of the boxes can't be unlocked
-    for boxe in boxes:
-        if "ul" not in boxe:
-            return False
-    return True
+    print(unlocked_boxes)
+    return len(unlocked_boxes) == number_boxes
