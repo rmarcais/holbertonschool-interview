@@ -44,6 +44,6 @@ def add_keys(boxes_to_unlock, unlocked_boxes, boxes, index):
     for key in boxes[index]:
         # If boxes[key] is not marked as unlocked,
         # we add its key to boxes_to_unlock
-        if key >= 0 and key < len(boxes) and not unlocked_boxes[key]:
+        if key < len(boxes) and not unlocked_boxes[key]:
             boxes_to_unlock.append(key)
     return boxes_to_unlock
