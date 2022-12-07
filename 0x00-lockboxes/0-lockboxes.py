@@ -5,39 +5,22 @@
 def canUnlockAll(boxes):
     """Method that determines if all the boxes can be unlocked."""
 
+    number_boxes = len(boxes)
+
     if boxes == []:
         return True
 
-    # When we get the key of a box, we put it in this list.
-    boxes_to_unlock = [0]
+    # The first box is unlocked
+    unlocked_boxes = [0]
 
-    # This list contains the number of the boxes we can unlock.
-    # At this moment, no box can be unlocked.
-    unlocked_boxes = [False for box in boxes]
+    for boxe in boxes:
+        index = boxes.index(boxe)
+        for key in boxe:
+            # If the key can unlock a locked box of the list 'boxes',
+            # we append "ul" to this box
+            # we append the box number in "unlocked_boxes"
+            if (key != index and key >= 0 and
+                    key < number_boxes and key not in unlocked_boxes):
+                unlocked_boxes.append(key)
 
-    # This means the box 0 can be unlocked
-    unlocked_boxes[0] = True
-
-    # While we can unlock boxes...
-    while len(boxes_to_unlock) > 0:
-        # We take the first key of boxes_to_unlock as index.
-        index = boxes_to_unlock[0]
-
-        for key in boxes[index]:
-            # If boxes[key] is not marked as unlocked,
-            # we add its key to boxes_to_unlock
-            if key > 0 and key < len(boxes) and not unlocked_boxes[key]:
-                boxes_to_unlock.append(key)
-
-        # We check the keys of boxes[index]
-        # to know if we can unlock antoher box.
-
-        # We do this to mark the box at the index 'index' as unlocked.
-        unlocked_boxes[index] = True
-
-        # Once the box marked as unlocked,
-        # we can remove its key from boxes_to_unlock.
-        boxes_to_unlock.pop(0)
-
-    # We return True if all boxes can be unlocked.
-    return all(unlocked_boxes)
+    return len(unlocked_boxes) == number_boxes
