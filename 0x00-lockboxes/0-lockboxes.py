@@ -27,8 +27,8 @@ def canUnlockAll(boxes):
         index = boxes_to_unlock[0]
 
         for key in boxes[index]:
-        # If boxes[key] is not marked as unlocked,
-        # we add its key to boxes_to_unlock
+            # If boxes[key] is not marked as unlocked,
+            # we add its key to boxes_to_unlock
             if key > 0 and key < len(boxes) and not unlocked_boxes[key]:
                 boxes_to_unlock.append(key)
 
