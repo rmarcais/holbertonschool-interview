@@ -20,18 +20,30 @@ def canUnlockAll(boxes):
 
     # While we can unlock boxes...
     while len(boxes_to_unlock) > 0:
+        # We take the first key of boxes_to_unlock as index.
         index = boxes_to_unlock[0]
-        boxes_to_unlock = add_keys(boxes_to_unlock, unlocked_boxes, boxes, index)
-        boxes_to_unlock.pop(0)
-        print(type(boxes_to_unlock))
+
+        # We check the keys of boxes[index]
+        # to know if we can unlock antoher box.
+        boxes_to_unlock = add_keys(boxes_to_unlock,
+                                   unlocked_boxes, boxes, index)
+
+        # We do this to mark the box at the index 'index' as unlocked.
         unlocked_boxes[index] = True
-        print(unlocked_boxes)
+
+        # Once the box marked as unlocked,
+        # we can remove its key from boxes_to_unlock.
+        boxes_to_unlock.pop(0)
+
+    # We return True if all boxes can be unlocked.
     return all(unlocked_boxes)
-    
+
 
 def add_keys(boxes_to_unlock, unlocked_boxes, boxes, index):
     """Method that adds keys to boxes_to_unlock"""
     for key in boxes[index]:
-        if boxes[key] not in unlocked_boxes:
+        # If boxes[key] is not marked as unlocked,
+        # we add its key to boxes_to_unlock
+        if not unlocked_boxes[key]:
             boxes_to_unlock.append(key)
     return boxes_to_unlock
