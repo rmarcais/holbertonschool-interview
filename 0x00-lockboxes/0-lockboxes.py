@@ -36,7 +36,7 @@ def canUnlockAll(boxes):
         boxes_to_unlock.pop(0)
 
     # We return True if all boxes can be unlocked.
-    return all(unlocked_boxes)
+    return not all(unlocked_boxes)
 
 
 def add_keys(boxes_to_unlock, unlocked_boxes, boxes, index):
