@@ -5,6 +5,9 @@
 def canUnlockAll(boxes):
     """Method that determines if all the boxes can be unlocked."""
 
+    if boxes == []:
+        return True
+
     # When we get the key of a box, we put it in this list.
     boxes_to_unlock = []
 
