@@ -12,22 +12,21 @@ def minOperations(n):
         return 0
 
     minOperations = 0
-    rem = n
 
     # We search the prime factors of n and each time
     # we find one, we add it to minOperations
-    while (rem > 1):
-        if (rem % 2 == 0):
+    while (n > 1):
+        if (n % 2 == 0):
             minOperations += 2
-            rem //= 2
+            n //= 2
         else:
             i = 3
-            while(i * i <= rem):
-                if (rem % i == 0):
+            while(i * i <= n):
+                if (n % i == 0):
                     minOperations += i
-                    rem /= i
+                    n /= i
                     break
                 i += 2
-            minOperations += rem
-            rem /= rem
+            minOperations += n
+            n /= n
     return int(minOperations)
