@@ -13,25 +13,17 @@ def minOperations(n):
 
     minOperations = 0
 
-    factoerFound = False
+    while n % 2 == 0:
+        minOperations += 2
+        n /= 2
 
-    # We search the prime factors of n and each time
-    # we find one, we add it to minOperations
-    while (n > 1):
-        factorFound = False
-        if (n % 2 == 0):
-            minOperations += 2
-            n //= 2
-        else:
-            i = 3
-            while(i * i <= n):
-                if (n % i == 0):
-                    minOperations += i
-                    n /= i
-                    factorFound = True
-                    break
-                i += 2
-            if not factorFound:
-                minOperations += n
-                n /= n
+    i = 3
+    while i * i <= n:
+        while n % i == 0:
+            minOperations += i
+            n /= i
+        i += 2
+    if n > 2:
+        minOperations += n
+    
     return int(minOperations)
