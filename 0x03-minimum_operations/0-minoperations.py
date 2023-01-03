@@ -25,5 +25,5 @@ def minOperations(n):
         i += 2
     if n > 2:
         minOperations += n
-    
+
     return int(minOperations)
