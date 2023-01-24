@@ -16,13 +16,17 @@ total_size = 0
 
 
 def print_stats(status_codes, total_size):
+    """Prints statistics from the beginning"""
     print("File size: {}".format(total_size))
     for k, v in status_codes.items():
         if v > 0:
             print("{}: {}".format(k, v))
 
+
 def handler(signal, frame):
+    """Prints statistics after a keyboard interruption"""
     print_stats(status_codes, total_size)
+
 
 signal.signal(signal.SIGINT, handler)
 
