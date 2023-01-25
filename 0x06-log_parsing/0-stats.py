@@ -21,12 +21,15 @@ def print_stats():
 if __name__ == "__main__":
     try:
         for line in sys.stdin:
-            lap += 1
-            infos = line.split()
-            code = int(infos[-2])
-            if code in status_codes.keys():
-                total_size += int(infos[-1])
-                status_codes[code] += 1
+            try:
+                infos = line.split()
+                code = int(infos[-2])
+                if code in status_codes.keys():
+                    total_size += int(infos[-1])
+                    status_codes[code] += 1
+                lap += 1
+            except ValueError:
+                pass
             if lap % 10 == 0:
                 print_stats()
     except KeyboardInterrupt:
