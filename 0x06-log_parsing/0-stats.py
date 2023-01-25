@@ -24,8 +24,9 @@ if __name__ == "__main__":
             lap += 1
             try:
                 infos = line.split()
-                total_size += int(infos[-1])
+                
                 code = int(infos[-2])
+                total_size += int(infos[-1])
                 if code in status_codes.keys():
                     status_codes[code] += 1
             except ValueError:
