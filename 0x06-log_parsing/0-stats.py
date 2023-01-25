@@ -24,20 +24,21 @@ def print_stats(status_codes, total_size):
 
 
 def handler(signal, frame):
-    """Prints statistics after a keybord interruption"""
     print_stats(status_codes, total_size)
+    raise KeyboardInterrupt
 
 
-if __name__ == "__main__":
-    signal.signal(signal.SIGINT, handler)
-    for line in stdin:
-        if re.match(regex, line):
-            lap += 1
-            infos = line.split()
-            code = int(infos[-2])
-            total_size += int(infos[-1])
-            if code in status_codes.keys():
-                status_codes[code] += 1
-            if lap == 10:
-                lap = 0
-                print_stats(status_codes, total_size)
+signal.signal(signal.SIGINT, handler)
+
+
+for line in stdin:
+    if re.match(regex, line):
+        lap += 1
+        infos = line.split()
+        code = int(infos[-2])
+        total_size += int(infos[-1])
+        if code in status_codes.keys():
+            status_codes[code] += 1
+        if lap == 10:
+            lap = 0
+            print_stats(status_codes, total_size)
