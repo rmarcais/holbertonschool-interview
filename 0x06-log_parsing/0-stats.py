@@ -27,8 +27,7 @@ if __name__ == "__main__":
             infos = line.split()
             total_size += int(infos[-1])
             code = int(infos[-2])
-            if code in status_codes.keys():
-                status_codes[code] += 1
+            status_codes[code] += 1
             if lap == 10:
                 lap = 0
                 print_stats()
