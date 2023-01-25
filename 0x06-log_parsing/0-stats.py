@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Task 0. Log parsing"""
 
-from sys import stdin
+import sys
 
 lap = 0
 
@@ -20,7 +20,7 @@ def print_stats():
 
 if __name__ == "__main__":
     try:
-        for line in stdin:
+        for line in sys.stdin:
             lap += 1
             infos = line.split()
             total_size += int(infos[-1])
