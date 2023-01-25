@@ -13,9 +13,9 @@ total_size = 0
 def print_stats():
     """Prints statistics from the beginning"""
     print("File size: {}".format(total_size))
-    for k, v in status_codes.items():
-        if v > 0:
-            print("{}: {}".format(k, v))
+    for key in sorted(status_codes.keys()):
+        if status_codes[key] > 0:
+            print("{}: {}".format(key, status_codes[key]))
 
 
 if __name__ == "__main__":
