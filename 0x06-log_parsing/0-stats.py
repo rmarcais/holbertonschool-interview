@@ -28,7 +28,7 @@ if __name__ == "__main__":
                     total_size += int(infos[-1])
                     status_codes[code] += 1
                 lap += 1
-            except ValueError:
+            except BaseException:
                 pass
             if lap % 10 == 0:
                 print_stats()
