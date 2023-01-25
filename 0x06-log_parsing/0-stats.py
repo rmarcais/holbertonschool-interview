@@ -12,7 +12,7 @@ status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 total_size = 0
 
 
-def print_stats(status_codes, total_size):
+def print_stats():
     """Prints statistics from the beginning"""
     print("File size: {}".format(total_size))
     for k, v in status_codes.items():
@@ -25,8 +25,8 @@ if __name__ == "__main__":
         for line in stdin:
             lap += 1
             infos = line.split()
+            total_size += int(infos[-1])
             try:
-                total_size += int(infos[-1])
                 code = int(infos[-2])
                 if code in status_codes.keys():
                     status_codes[code] += 1
@@ -34,8 +34,8 @@ if __name__ == "__main__":
                 pass
             if lap == 10:
                 lap = 0
-                print_stats(status_codes, total_size)
+                print_stats()
     except KeyboardInterrupt:
-        print_stats(status_codes, total_size)
-        raise
-    print_stats(status_codes, total_size)
+        print_stats()
+        #raise
+    print_stats()
