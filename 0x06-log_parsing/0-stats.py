@@ -2,8 +2,7 @@
 """Task 0. Log parsing"""
 
 from sys import stdin
-import re
-from time import sleep
+
 
 lap = 0
 
