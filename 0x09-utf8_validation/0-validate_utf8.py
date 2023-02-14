@@ -19,7 +19,7 @@ def validUTF8(data) -> bool:
     a valid UTF-8 encoding
     """
     if not data:
-        return None
+        return False
     count = 0
     for d in data:
         if not count:
