@@ -18,8 +18,8 @@ def validUTF8(data) -> bool:
     Determines if a given data set represents
     a valid UTF-8 encoding
     """
-    if not data or data == []:
-        return False
+    if not data:
+        return None
     count = 0
     for d in data:
         if not count:
