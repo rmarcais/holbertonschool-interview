@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """0-validate_utf8 module"""
 
-from typing import List
-
 
 def count_ones(n: int) -> int:
     """Counts the ones at the beginning of a number"""
@@ -15,7 +13,7 @@ def count_ones(n: int) -> int:
     return count
 
 
-def validUTF8(data: List[int]) -> bool:
+def validUTF8(data) -> bool:
     """
     Determines if a given data set represents
     a valid UTF-8 encoding
