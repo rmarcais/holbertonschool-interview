@@ -30,4 +30,4 @@ def validUTF8(data) -> bool:
             if count_ones(d) != 1:
                 return False
         count -= 1
-    return True
+    return count == 0
