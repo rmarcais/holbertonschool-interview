@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * merge_left - Merges and merges an array of integers to the left
+ * merge_left - Merges an array of integers to the left
  *
  * @line: Points to an array of integers
  * @size: Number of elements in @line
@@ -36,7 +36,7 @@ void merge_left(int *line, int size)
 }
 
 /**
- * merge_right - Merges and merges an array of integers to the right
+ * merge_right - Merges an array of integers to the right
  *
  * @line: Points to an array of integers
  * @size: Number of elements in @line
@@ -128,7 +128,7 @@ void slide_right(int *line, int size)
 }
 
 /**
- * slide_line - Calls the slide function
+ * slide_line - Slides and merges an array of integers to the right
  *
  * @line: Points to an array of integers
  * @size: Number of elements in @line
