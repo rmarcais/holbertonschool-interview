@@ -1,6 +1,25 @@
 #include "menger.h"
 
 /**
+ * free_matrix - free the memory taken by the matrix
+ *
+ * @matrix: the matrix
+ * @size: size of the matrix
+ *
+ * Return: Nothing
+ */
+void free_matrix(char **matrix, int size)
+{
+	int i;
+
+	for (i = 0; i < size; i++)
+	{
+		free(matrix[i]);
+	}
+	free(matrix);
+}
+
+/**
  * print_matrix - Prints a matrix
  *
  * @matrix: the matrix to print
@@ -95,4 +114,5 @@ void menger(int level)
 	matrix = create_matrix(size);
 	menger_sponge(matrix, size, quotient);
 	print_matrix(matrix, size);
+	free_matrix(matrix, size);
 }

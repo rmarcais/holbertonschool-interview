@@ -1,7 +1,7 @@
 # 0x0B. Menger sponge
 
 <p align="center">
-<img src="./merger-sponge.jpg" alt="meme">
+<img src="./menger-sponge.jpg" alt="meme">
 </p>
 
 ## Requirements
