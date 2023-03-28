@@ -60,7 +60,7 @@ avl_t *build_avl(int *array, int start, int end, avl_t *parent)
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-	if (array == NULL || size == 0)
+	if (array == NULL || size < 1)
 		return (NULL);
 
 	return (build_avl(array, 0, size - 1, NULL));
