@@ -1,0 +1,7 @@
+*~
+*main*.py
+*main.c
+node_modules
+*.pyc
+*-lock.json
+settings.json
