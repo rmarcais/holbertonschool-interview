@@ -1,7 +1,7 @@
 # 0x10. Rain
 
 <p align="center">
-<img src="" alt="meme">
+<img src="https://www.digitalmomblog.com/wp-content/uploads/2022/03/you-cant-stop-the-rain-meme.jpg" alt="meme">
 </p>
 
 ## Requirements
