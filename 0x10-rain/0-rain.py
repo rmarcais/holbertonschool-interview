@@ -7,7 +7,7 @@ def rain(walls):
     Function that calculates how many square units
     of water will be retained after it rains
     """
-    if len(walls) == 0:
+    if not walls or len(walls) == 0:
         return 0
 
     result = 0
