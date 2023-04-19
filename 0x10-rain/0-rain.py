@@ -14,6 +14,8 @@ def rain(walls):
     wall_height = 0
     rain = 0
     for wall in walls:
+        if not isinstance(wall, int):
+            return 0
         if wall == 0:
             rain += 1
         else:
