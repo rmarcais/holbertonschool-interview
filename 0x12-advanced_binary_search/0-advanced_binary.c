@@ -42,12 +42,11 @@ int binary_search(int *array, int low, int high, int value)
 
 	if (array[mid] == value && (mid == 0 || array[mid - 1] < value))
 		return (mid);
-	else if (array[mid] == value && low != high)
-		return (binary_search(array, low, mid, value));
 	else if (array[mid] < value)
 		return (binary_search(array, mid + 1, high, value));
-	else
-		return (binary_search(array, low, mid - 1, value));
+	else if (array[mid] >= value)
+		return (binary_search(array, low, mid, value));
+    return (-1);
 }
 
 /**
