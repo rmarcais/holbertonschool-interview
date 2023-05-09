@@ -6,13 +6,9 @@ import requests
 
 def parse_titles(posts, word_list, count):
     """Parses the titles of the posts and updates the count"""
-    words = set()
-    for word in word_list:
-        words.add(word.lower())
-
     for post in posts:
         title = post.get('data').get('title')
-        for word in words:
+        for word in word_list:
             word = word.lower()
             n = title.lower().count(word)
             count[word] = count.setdefault(word, 0) + n
