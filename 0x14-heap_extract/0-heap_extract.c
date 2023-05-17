@@ -64,7 +64,7 @@ int heap_size(heap_t *root)
  */
 heap_t *get_last_node(heap_t *root, int size)
 {
-	heap_t *queue[size];
+	heap_t **queue = malloc(size * sizeof(heap_t *));
 	heap_t *node = NULL;
 	int level = 0, index;
 
@@ -82,6 +82,7 @@ heap_t *get_last_node(heap_t *root, int size)
 		if (node->right)
 			queue[level++] = node->right;
 	}
+	free(queue);
 
 	return (node);
 }
