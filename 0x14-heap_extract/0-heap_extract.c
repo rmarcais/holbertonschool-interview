@@ -68,7 +68,7 @@ heap_t *get_last_node(heap_t *root, int size)
 	heap_t *node = NULL;
 	int level = 0, index;
 
-	if (!root || size == 0)
+	if (!root || size == 0 || !queue)
 		return (0);
 
 	queue[level++] = root;
