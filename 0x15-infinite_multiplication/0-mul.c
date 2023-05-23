@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
  * is_digit - checks if a character is a digit
  * @c: the character to check
@@ -77,7 +77,7 @@ void _memset_with_zero(char *s, int len)
 }
 
 /**
- * main - multiplies two numbers and prints the result
+ * multiply - multiplies two numbers and prints the result
  * @first: first number
  * @second: second number
  * @len_first: length of the first number
