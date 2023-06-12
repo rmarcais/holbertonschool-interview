@@ -121,7 +121,7 @@ int main(void)
 ### Expected output
 
 ```
-remi@ubuntu:~/0x17-find_the_loop$ gcc -Wall -pedantic -Werror -Wextra 0-main.c 0-find_loop.c -L. -lloop -o main
+remi@ubuntu:~/0x17-find_the_loop$ gcc -Wall -pedantic -Werror -Wextra 0-main.c 0-find_loop.c lib.c -o main
 remi@ubuntu:~/0x17-find_the_loop$ ./main
 [0x13700f0] 1024
 [0x13700d0] 402
