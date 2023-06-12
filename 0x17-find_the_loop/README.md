@@ -1,5 +1,9 @@
 # 0x17. Find the Loop
 
+<p align="center">
+<img src="https://i.pinimg.com/564x/0b/1c/22/0b1c22b9053f896b2638ea75e116faf8.jpg" alt="meme">
+</p>
+
 ## Requirements
 ### General
 - Allowed editors: vi, vim, emacs
