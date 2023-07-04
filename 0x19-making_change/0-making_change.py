@@ -5,21 +5,18 @@ makeChange method
 
 
 def makeChange(coins, total):
-    """
-    determine the fewest number of coins needed
-    to meet a given amount total
-    """
-    number_coins = 0
-    cents = 0
-    if total <= 0:
-        return 0
-
-    coins = sorted(coins, reverse=True)
-
+    """Determine the fewest number of coins."""
+    # scoins = sorted(coins, reverse=True)
+    # return rec_change(scoins, total, 0, 0, -1)
+    i = 0
     for coin in coins:
-        while cents + coin <= total:
-            cents += coin
-            number_coins += 1
-        if cents == total:
-            return number_coins
-    return -1
+        j = total // coin
+        total -= j * coin
+        i += j
+        if total <= 0:
+            break
+
+    if total != 0:
+        i = -1
+
+    return i
