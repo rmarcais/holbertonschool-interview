@@ -10,7 +10,7 @@ def makeChange(coins, total):
     if total < 1:
         return 0
     count = 0
-    for coin in sorted(coins, reverse=True):
+    for coin in coins:
         while total >= coin:
             total -= coin
             count += 1
