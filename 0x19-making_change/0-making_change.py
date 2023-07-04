@@ -14,6 +14,4 @@ def makeChange(coins, total):
         while total >= coin:
             total -= coin
             count += 1
-    if total != 0:
-        return -1
     return count
