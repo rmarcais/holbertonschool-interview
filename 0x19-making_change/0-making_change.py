@@ -8,9 +8,6 @@ def makeChange(coins, total):
     to meet a given total total
     """
 
-    if total < 1:
-        return 0
-
     # dp for dynamic programming
     dp = [-1 for i in range(0, total + 1)]
 
