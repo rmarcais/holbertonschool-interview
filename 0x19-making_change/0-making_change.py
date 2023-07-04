@@ -1,28 +1,25 @@
 #!/usr/bin/python3
-"""Making Change"""
+"""
+makeChange method
+"""
 
 
 def makeChange(coins, total):
     """
-    Determines the fewest number of coins needed
-    to meet a given total total
+    determine the fewest number of coins needed
+    to meet a given amount total
     """
-
-    if total < 1:
+    number_coins = 0
+    cents = 0
+    if total <= 0:
         return 0
 
-    # dp for dynamic programming
-    dp = [-1 for i in range(0, total + 1)]
+    coins = sorted(coins, reverse=True)
 
-    for i in coins:
-        if i > len(dp) - 1:
-            continue
-        dp[i] = 1
-        for j in range(i + 1, total + 1):
-            if dp[j - i] == -1:
-                continue
-            elif dp[j] == -1:
-                dp[j] = dp[j - i] + 1
-            else:
-                dp[j] = min(dp[j], dp[j - i] + 1)
-    return dp[total]
+    for coin in coins:
+        while cents + coin <= total:
+            cents += coin
+            number_coins += 1
+        if cents == total:
+            return number_coins
+    return -1
