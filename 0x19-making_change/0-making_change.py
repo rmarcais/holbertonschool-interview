@@ -1,22 +1,21 @@
 #!/usr/bin/python3
-"""
-makeChange method
-"""
+"""Making Change"""
 
 
 def makeChange(coins, total):
-    """Determine the fewest number of coins."""
-    # scoins = sorted(coins, reverse=True)
-    # return rec_change(scoins, total, 0, 0, -1)
-    i = 0
-    for coin in coins:
-        j = total // coin
-        total -= j * coin
-        i += j
-        if total <= 0:
-            break
+    """
+    Determines the fewest number of coins needed
+    to meet a given total total
+    """
 
-    if total != 0:
-        i = -1
+    if total < 1:
+        return 0
 
-    return i
+    count = 0
+    for coin in sorted(coins, reverse=True):
+        while total >= coin:
+            count += 1
+            total -= coin
+            if total == 0:
+                return count
+    return -1
