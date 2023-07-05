@@ -8,4 +8,14 @@ def makeChange(coins, total):
     to meet a given total total
     """
 
-    return 5
+    if total < 1:
+        return 0
+
+    count = 0
+    for coin in sorted(coins, reverse=True):
+        while total >= coin:
+            count += 1
+            total -= coin
+            if total == 0:
+                return count
+    return -1
