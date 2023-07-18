@@ -39,8 +39,10 @@ void counting_sort(int *array, int size, int exp, int max)
 		return;
 
 	count = malloc(max * sizeof(int));
-	if (!count)
+	if (!count) {
+		free(output);
 		return;
+	}
 
 	for (i = 0; i < max; i++)
 		count[i] = 0;
