@@ -1,5 +1,5 @@
 #include "sort.h"
-#include <stdio.h>
+
 /**
  * max_array - Function that get the max size of an array
  * @array: The array
@@ -26,10 +26,9 @@ int max_array(int *array, size_t size)
  * @array: The array
  * @size: The size of the array
  * @exp: The significant digit
- * @max: The biggest number in array
  * Return: Nothing
  */
-void counting_sort(int *array, int size, int exp, int max)
+void counting_sort(int *array, int size, int exp)
 {
 	int *output, *count;
 	int i;
@@ -38,20 +37,20 @@ void counting_sort(int *array, int size, int exp, int max)
 	if (!output)
 		return;
 
-	count = malloc(max * sizeof(int));
+	count = malloc(10 * sizeof(int));
 	if (!count)
 	{
 		free(output);
 		return;
 	}
 
-	for (i = 0; i < max; i++)
+	for (i = 0; i < 10; i++)
 		count[i] = 0;
 
 	for (i = 0; i < size; i++)
 		count[(array[i] / exp) % 10]++;
 
-	for (i = 1; i < max; i++)
+	for (i = 1; i < 10; i++)
 		count[i] += count[i - 1];
 
 	for (i = size - 1; i >= 0; i--)
@@ -86,7 +85,7 @@ void radix_sort(int *array, size_t size)
 
 	for (exp = 1; max / exp > 0; exp *= 10)
 	{
-		counting_sort(array, size, exp, max);
+		counting_sort(array, size, exp);
 		print_array(array, size);
 	}
 }
