@@ -2,11 +2,9 @@
 
 /**
  * max - function that computes the max between two integers.
- * 
- * @a: first integer
- * @b: second_integer
- * 
- * Return: a or b
+ * @a: first integer.
+ * @b: second_integer.
+ * Return: a or b.
  */
 int max(int a, int b)
 {
@@ -17,11 +15,9 @@ int max(int a, int b)
 }
 
 /**
- * height - function that measures the height of a binary tree
- * 
- * @tree: a pointer to the root node of the tree to measure the height
- * 
- * Return: The height
+ * height - function that measures the height of a binary tree.
+ * @tree: a pointer to the root node of the tree to measure the height.
+ * Return: The height.
  */
 int height(const binary_tree_t *tree)
 {
@@ -31,10 +27,8 @@ int height(const binary_tree_t *tree)
 }
 
 /**
- * binary_tree_height - function that measures the height of a binary tree
- * 
- * @tree: a pointer to the root node of the tree to measure the height
- * 
+ * binary_tree_height - function that measures the height of a binary tree.
+ * @tree: a pointer to the root node of the tree to measure the height.
  * Return: 0, 1 or 2
  */
 size_t binary_tree_height(const binary_tree_t *tree)
@@ -44,16 +38,15 @@ size_t binary_tree_height(const binary_tree_t *tree)
 
 /**
  * binary_avl_traverse - function that traverse down the tree
- * 
- * @node: Pointer to the root node of the tree to check
- * @min: Minimum value not to be exceeded
- * @max: Maximum value not to be exceeded
- * 
+ * @node: a pointer to the node of the root to check
+ * @min: the min value of a node
+ * @max: the max value of a node
+ * -1 and +1 in the last return is for checkin no duplicate value
  * Return: 1 if the binary tree is a AVL, 0 otherwise
  */
 int binary_avl_traverse(const binary_tree_t *node, int min, int max)
 {
-	int left_height, right_height, abs_value;
+	int left_height, right_height;
 
 	if (node == NULL)
 		return (1);
@@ -62,16 +55,7 @@ int binary_avl_traverse(const binary_tree_t *node, int min, int max)
 	left_height = binary_tree_height(node->left);
 	right_height = binary_tree_height(node->right);
 
-    if (left_height - right_height < 0)
-    {
-        abs_value = -(left_height - right_height);
-    }
-    else
-    {
-        abs_value = left_height - right_height;
-    }
-
-	if (abs_value > 1)
+	if (abs(left_height - right_height) > 1)
 		return (0);
 
 	return (binary_avl_traverse(node->left, min, node->n - 1) &&
@@ -79,17 +63,13 @@ int binary_avl_traverse(const binary_tree_t *node, int min, int max)
 }
 
 /**
- * binary_tree_is_avl - Checks if a binary tree is
- * a valid AVL tree
- *
- * @tree: Pointer to the root node of the tree to check
- * 
- * Return: 1 if tree is a valid AVL tree, and 0 otherwise.
+ * binary_tree_is_avl - function that checks if a binary tree is a valid AVL
+ * @tree: a pointer to the root node of the tree to check
+ * Return: 0 if tree is NULL or otherwise, 1 if tree is a valide AVL
  */
 int binary_tree_is_avl(const binary_tree_t *tree)
 {
-    if (!tree)
-        return (0);
-
-    return (binary_avl_traverse(tree, INT_MIN, INT_MAX));
+	if (tree == NULL)
+		return (0);
+	return (binary_avl_traverse(tree, INT_MIN, INT_MAX));
 }
