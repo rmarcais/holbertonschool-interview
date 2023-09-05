@@ -26,7 +26,10 @@ def isWinner(x, nums):
             elif not isPrime(n):
                 continue
             else:
-                player = "Maria" if player == "Ben" else "Ben"
+                if player == "Maria":
+                    player = "Ben"
+                else:
+                    player = "Maria"
 
     if defeats["Maria"] < defeats["Ben"]:
         return "Maria"
