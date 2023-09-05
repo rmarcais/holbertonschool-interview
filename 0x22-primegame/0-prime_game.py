@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 """0. Prime Game"""
 
+def canWin(dp, start):
+    """Determines if a player can win"""
+    for i in range(start, len(dp)):
+        if not dp[i]:
+            return True
+    return False
 
 def isPrime(n):
     """Determines if a number is prime"""
@@ -18,18 +24,21 @@ def isWinner(x, nums):
     player = "Maria"
 
     for n in nums:
-        dp = [False] * (n + 1)
+        dp = [False] * (n + 2)
         dp[0] = True
-        for i in range(1, n + 1):
-            if dp[i]:
-                for k in range(i, -4, -1):
-                    if not dp[k]:
-                        i = k
-            if not isPrime(n) and i == n:
-                defeats[player] -= 1
+        dp[len(dp) - 1] = True
+        for i in range(1, n + 2):
+            if dp[i] and i == n + 1:
+                defeats[player] += 1
                 player = "Maria"
                 break
-            elif not isPrime(n):
+            if dp[i]:
+                continue
+            if not isPrime(i) and not canWin(dp, i + 1):
+                defeats[player] += 1
+                player = "Maria"
+                break
+            elif not isPrime(i):
                 continue
             else:
                 dp[i] = True
