@@ -23,6 +23,9 @@ def countPrimeNumbers(end):
 
 def isWinner(x, nums):
     """Determines who the winner of each game is"""
+    if x < 1 or not nums or len(nums) < x:
+        return None
+
     wins = {"Ben": 0, "Maria": 0}
 
     for n in range(x):
