@@ -25,8 +25,8 @@ def isWinner(x, nums):
     """Determines who the winner of each game is"""
     wins = {"Ben": 0, "Maria": 0}
 
-    for n in nums:
-        if countPrimeNumbers(n) % 2 == 0:
+    for n in range(x):
+        if countPrimeNumbers(nums[n]) % 2 == 0:
             wins["Ben"] += 1
         else:
             wins["Maria"] += 1
