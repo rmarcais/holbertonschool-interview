@@ -14,22 +14,20 @@ def isPrime(n):
 
 def countPrimeNumbers(end):
     """Counts the prime numbers between 2 and end"""
-    count = 0
+    primes = []
     for i in range(2, end + 1):
         if isPrime(i):
-            count += 1
-    return count
+            primes.append(i)
+    return primes
 
 
 def isWinner(x, nums):
     """Determines who the winner of each game is"""
-    if x < 1 or not nums or len(nums) < x:
-        return None
-
     wins = {"Ben": 0, "Maria": 0}
+    primes = countPrimeNumbers(max(nums))
 
     for n in range(x):
-        if countPrimeNumbers(nums[n]) % 2 == 0:
+        if len([p for p in primes if p <= nums[n]]) % 2 == 0:
             wins["Ben"] += 1
         else:
             wins["Maria"] += 1
